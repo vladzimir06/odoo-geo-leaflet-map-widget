@@ -1,5 +1,5 @@
 {
-    'name': "Odoo Geo Leaflet Map Widget",
+    'name': "odoo_geo_leaflet_map_widget",
     'summary': "Reusable Leaflet map widget for Odoo forms.",
     'description': "Provides a custom field widget based on Leaflet for manual coordinate selection and reverse geocoding.",
     'author': "vladzimir06",
