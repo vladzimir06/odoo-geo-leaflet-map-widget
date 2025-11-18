@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="map_viewer_form_view" model="ir.ui.view">
+        <field name="name">map.viewer.form</field>
+        <field name="model">map.viewer</field>
+        <field name="arch" type="xml">
+            <form string="Map Coordinates">
+                <sheet>
+                    <group string="Map coordinates (manual)">
+                        <label for="map_latitude" string="OSM Coordinates"/>
+                        <div>
+                            <span>
+                                Lat:
+                                <field name="map_latitude" nolabel="1" class="oe_inline"/>
+                            </span>
+                            <br/>
+                            <span>
+                                Long:
+                                <field name="map_longitude" nolabel="1" class="oe_inline"/>
+                            </span>
+                            <br/>
+                            <div name="geo_localize_button">
+                                <button icon="fa-gear" string="Apply address"
+                                        name="action_reverse_localize" type="object"
+                                        class="btn btn-link p-0"/>
+                            </div>
+                        </div>
+
+                        <field name="osm_map_url" widget="url" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="map_canvas" nolabel="1" widget="geo_leaflet_map_viewer"/>
+                    </group>
+
+                    <group string="Address from Reverse Geocoding (Demo)">
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="country_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_map_viewer">
+        <field name="name">Map Viewer Demo</field>
+        <field name="res_model">map.viewer</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_map_viewer_root" name="Map Widget Demo" sequence="100"/>
+    <menuitem id="menu_map_viewer" parent="menu_map_viewer_root"
+              action="action_map_viewer" sequence="10"/>
+</odoo>

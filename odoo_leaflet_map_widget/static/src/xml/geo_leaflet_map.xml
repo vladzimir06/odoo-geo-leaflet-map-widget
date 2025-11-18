@@ -1,0 +1,12 @@
+<t t-name="GeoLeafletMapTemplate" owl="1">
+    <div class="o_leaflet_map_widget_wrapper">
+        <div t-ref="mapContainer" class="o_leaflet_map_widget"></div>
+
+        <button type="button"
+                class="btn btn-primary mt-2"
+                t-on-click="onApplyCoordinatesClick">
+            <i class="fa fa-location-arrow me-1"></i>
+            Use entered coordinates
+        </button>
+    </div>
+</t>
